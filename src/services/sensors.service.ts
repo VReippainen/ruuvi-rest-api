@@ -20,7 +20,7 @@ class SensorService {
       }
       tag.on('updated', (data: Measurement) => {
         logger.info(`Sensor with ID ${sensorId} updated`);
-        this.sensors = this.sensors.map(s => (s.id === sensorId ? { id: sensorId, latestMeasurement: data } : s));
+        this.sensors = this.sensors.map(s => (s.id === sensorId ? { id: sensorId, latestMeasurement: { ...data, date: new Date() } } : s));
       });
     });
   }

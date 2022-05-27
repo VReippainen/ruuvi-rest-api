@@ -17,6 +17,7 @@ export interface Measurement {
   movementCounter: number;
   measurementSequenceNumber: number;
   mac: string;
+  date?: Date;
 }
 
 export interface Tag {

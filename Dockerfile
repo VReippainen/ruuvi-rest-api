@@ -1,5 +1,6 @@
 # Common build stage
-FROM node:14.14.0-alpine3.12 as common-build-stage
+FROM node:16.15-alpine3.14 as common-build-stage
+RUN apk add g++ make py3-pip
 
 COPY . ./app
 
@@ -7,7 +8,7 @@ WORKDIR /app
 
 RUN npm install
 
-EXPOSE 4000
+EXPOSE 3000
 
 # Development build stage
 FROM common-build-stage as development-build-stage
